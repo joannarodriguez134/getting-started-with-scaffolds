@@ -124,6 +124,9 @@ GEM
     dotenv-rails (2.8.1)
       dotenv (= 2.8.1)
       railties (>= 3.2)
+    draft_generators (0.0.4)
+      devise
+      indefinite_article
     draft_matchers (0.0.2)
       capybara
       color_namer
@@ -167,6 +170,8 @@ GEM
     importmap-rails (1.1.6)
       actionpack (>= 6.0.0)
       railties (>= 6.0.0)
+    indefinite_article (0.2.5)
+      activesupport
     io-console (0.6.0)
     irb (1.6.4)
       reline (>= 0.3.0)
@@ -413,6 +418,7 @@ DEPENDENCIES
   debug
   devise
   dotenv-rails
+  draft_generators
   draft_matchers
   faker
   grade_runner
