@@ -10,4 +10,5 @@
 #  updated_at  :datetime         not null
 #
 class Book < ApplicationRecord
+  validates :title, presence: true
 end

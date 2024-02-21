@@ -29,16 +29,21 @@ class MoviesController < ApplicationController
   end
 
   def create
-    the_movie = Movie.new
-    the_movie.title = params.fetch("query_title")
-    the_movie.description = params.fetch("query_description")
-    the_movie.released = params.fetch("query_released", false)
+    @the_movie = Movie.new
+    @the_movie.title = params.fetch("query_title")
+    @the_movie.description = params.fetch("query_description")
+    @the_movie.released = params.fetch("query_released", false)
 
-    if the_movie.valid?
-      the_movie.save
+    if @the_movie.valid?
+      @the_movie.save
       redirect_to("/movies", { :notice => "Movie created successfully." })
     else
-      redirect_to("/movies", { :alert => the_movie.errors.full_messages.to_sentence })
+      cookies[:title] = params.fetch("query_title")
+      cookies[:description] = params.fetch("query_description")
+      # cookies[:released] = params.fetch("query_released")
+
+      # redirect_to("/movies/new", { :alert => @the_movie.errors.full_messages.to_sentence })
+      render template: "movies/with_errors"
     end
   end
 
